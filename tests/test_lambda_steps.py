@@ -1,8 +1,17 @@
 import allure
+from allure_commons.types import Severity
 from selene import browser, by, have
 
 
 def test_open_issue_tag_with_labda_steps():
+    allure.dynamic.tag('web-chrome')
+    allure.dynamic.severity(Severity.CRITICAL)
+    allure.dynamic.label('owner', 'gamelin')
+    allure.dynamic.feature('Задачи в репозитории')
+    allure.dynamic.story('Неавторизованный пользователь может найти репозиторий через строку поиска')
+    allure.dynamic.link('https://github.com', name='Testing')
+    allure.dynamic.title('Тест на основе лямбда шагов')
+
     with allure.step('Открыть главную страницу github.com'):
         browser.open('/')
 

@@ -1,7 +1,15 @@
 import allure
+from allure_commons.types import Severity
 from selene import browser, by, have
 
 
+@allure.tag('web')
+@allure.severity(Severity.MINOR)
+@allure.label('owner', 'gamelin')
+@allure.feature('Задачи в репозитории')
+@allure.story('Пользователь может найти репозиторий через строку поиска')
+@allure.link('https://github.com', name='Testing')
+@allure.title('Тест на основе шагов c декораторами')
 def test_open_issue_tag_with_decorator_steps():
     open_main_page()
     search_repository('qa_guru_24_python_hw9')
