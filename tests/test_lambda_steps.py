@@ -2,7 +2,7 @@ import allure
 from selene import browser, by, have
 
 
-def test_open_issue_tag():
+def test_open_issue_tag_with_labda_steps():
     with allure.step('Открыть главную страницу github.com'):
         browser.open('/')
 
