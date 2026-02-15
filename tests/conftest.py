@@ -1,5 +1,6 @@
+import allure_commons
 import pytest
-from selene import browser
+from selene import browser, support
 from selenium import webdriver
 
 
@@ -13,6 +14,10 @@ def browser_settings():
     driver_options = webdriver.ChromeOptions()
     driver_options.page_load_strategy = 'eager'
     browser.config.driver_options = driver_options
+
+    browser.config._wait_decorator = support._logging.wait_with(
+        context=allure_commons._allure.StepContext
+    )
 
     yield
 
